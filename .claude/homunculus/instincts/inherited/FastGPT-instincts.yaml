@@ -1,0 +1,732 @@
+# Instincts generated from https://github.com/gclm/FastGPT
+# Generated: 2026-03-13T12:54:42.888Z
+# Version: 2.0
+
+---
+id: FastGPT-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Commit Length
+
+## Action
+
+Keep commit messages concise (under 50 characters)
+
+## Evidence
+
+- Average commit message length: 38 chars
+- Based on 200 commits
+
+---
+id: FastGPT-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: FastGPT-import-alias
+trigger: "when importing modules"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Import Alias
+
+## Action
+
+Use path aliases (@/, ~/) instead of relative imports
+
+## Evidence
+
+- Import analysis shows alias pattern
+- Example: import { x } from '@/lib/x'
+
+---
+id: FastGPT-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Export Style
+
+## Action
+
+Prefer mixed exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: mixed
+
+---
+id: FastGPT-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: FastGPT-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: FastGPT-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Test Framework
+
+## Action
+
+Use vitest as the test framework
+
+## Evidence
+
+- Test framework detected: vitest
+- File pattern: *.test.ts
+
+---
+id: FastGPT-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: FastGPT-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: vi.mock
+- Consistent across test files
+
+---
+id: FastGPT-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Test Types
+
+## Action
+
+Write unit, integration tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration
+- Coverage config: yes
+
+---
+id: FastGPT-workflow-database-migration
+trigger: "when modifying the database schema or adding tables"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Workflow Database Migration
+
+## Action
+
+Follow the database-migration workflow:
+1. Create migration file
+2. Update schema definitions
+3. Generate/update types
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: **/schema.*, **/types.ts, migrations/*
+
+---
+id: FastGPT-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~10x per month
+- Files: packages/service/common/logger/*, /*, packages/global/common/file/*
+
+---
+id: FastGPT-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: src/**/*
+
+---
+id: FastGPT-workflow-documentation-update
+trigger: "when doing documentation update"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Workflow Documentation Update
+
+## Action
+
+Follow the documentation-update workflow:
+1. Update version documentation in docs/upgrading/
+2. Update docker-compose files with new image tags
+3. Update doc-last-modified.json
+4. Sync documentation across different deployment configurations
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~15x per month
+- Files: document/content/docs/upgrading/4-14/*.mdx, document/data/doc-last-modified.json, deploy/docker/*/docker-compose.*.yml
+
+---
+id: FastGPT-workflow-docker-compose-sync
+trigger: "when doing docker compose sync"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Workflow Docker Compose Sync
+
+## Action
+
+Follow the docker-compose-sync workflow:
+1. Update main docker-compose files in deploy/docker/
+2. Sync changes to document/public/deploy/docker/
+3. Update both CN and global variants
+4. Update development templates
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~12x per month
+- Files: deploy/docker/cn/docker-compose.*.yml, deploy/docker/global/docker-compose.*.yml, document/public/deploy/docker/cn/docker-compose.*.yml
+
+---
+id: FastGPT-workflow-security-fix-implementation
+trigger: "when doing security fix implementation"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Workflow Security Fix Implementation
+
+## Action
+
+Follow the security-fix-implementation workflow:
+1. Modify core security functions
+2. Add comprehensive test coverage
+3. Update documentation with security notes
+4. Add upgrade documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: packages/service/common/system/utils.ts, packages/service/core/app/http.ts, test/cases/service/common/system/utils.test.ts
+
+---
+id: FastGPT-workflow-translation-and-i18n
+trigger: "when doing translation and i18n"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Workflow Translation And I18n
+
+## Action
+
+Follow the translation-and-i18n workflow:
+1. Update source language files (zh-CN)
+2. Translate to other languages (en, zh-Hant)
+3. Update documentation translations
+4. Sync translation keys across all locale files
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~8x per month
+- Files: packages/web/i18n/*/common.json, packages/web/i18n/*/workflow.json, document/content/docs/*/*.en.mdx
+
+---
+id: FastGPT-workflow-dependency-updates
+trigger: "when doing dependency updates"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Workflow Dependency Updates
+
+## Action
+
+Follow the dependency-updates workflow:
+1. Dependabot creates PR with dependency bump
+2. Update package.json or package-lock.json
+3. Include security changelog information
+4. Automated merge after checks
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: document/package-lock.json, packages/service/package.json, pnpm-lock.yaml
+
+---
+id: FastGPT-workflow-api-endpoint-development
+trigger: "when doing api endpoint development"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Workflow Api Endpoint Development
+
+## Action
+
+Follow the api-endpoint-development workflow:
+1. Create API route handler in pages/api/
+2. Define request/response types
+3. Add authentication/permission checks
+4. Update related service functions
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: projects/app/src/pages/api/core/**/*.ts, packages/global/*/api.ts, packages/service/*/controller.ts
+
+---
+id: FastGPT-workflow-workflow-tool-enhancement
+trigger: "when doing workflow tool enhancement"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/gclm/FastGPT
+---
+
+# FastGPT Workflow Workflow Tool Enhancement
+
+## Action
+
+Follow the workflow-tool-enhancement workflow:
+1. Update workflow dispatch tools
+2. Modify core workflow types and constants
+3. Add tool-specific implementations
+4. Update workflow template system
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: packages/service/core/workflow/dispatch/tools/*.ts, packages/global/core/workflow/type/*.ts, packages/global/core/workflow/constants.ts
+
+---
+id: fastgpt-conventional-commits
+trigger: "When making a commit"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Conventional Commits
+
+## Action
+
+Use conventional commit format with type prefix (fix:, feat:, chore:, docs:, perf:)
+
+## Evidence
+
+- All commits follow pattern like 'fix: share page (#6553)'
+- Consistent use of fix:, feat:, chore:, docs: prefixes
+
+---
+id: fastgpt-pr-reference
+trigger: "When making a commit"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Pr Reference
+
+## Action
+
+Include PR reference number in commit message format (#XXXX)
+
+## Evidence
+
+- Most commits include PR numbers like (#6553)
+- Pattern seen across all commit examples
+
+---
+id: fastgpt-camelcase-files
+trigger: "When creating new files"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Camelcase Files
+
+## Action
+
+Use camelCase naming convention for file names
+
+## Evidence
+
+- File naming pattern shows camelCase preference
+- TypeScript project structure
+
+---
+id: fastgpt-alias-imports
+trigger: "When importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Alias Imports
+
+## Action
+
+Use alias-style imports for better path resolution
+
+## Evidence
+
+- Import style marked as 'alias'
+- Monorepo structure suggests aliased imports
+
+---
+id: fastgpt-vitest-testing
+trigger: "When writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Vitest Testing
+
+## Action
+
+Use Vitest framework with *.test.ts naming pattern
+
+## Evidence
+
+- Testing framework is vitest
+- Test pattern is *.test.ts
+- vitest.config.ts files present
+
+---
+id: fastgpt-vi-mock
+trigger: "When mocking in tests"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Vi Mock
+
+## Action
+
+Use vi.mock() for mocking dependencies
+
+## Evidence
+
+- Mocking style specified as vi.mock
+- Vitest framework standard
+
+---
+id: fastgpt-try-catch-errors
+trigger: "When handling errors"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Try Catch Errors
+
+## Action
+
+Use try-catch blocks for error handling
+
+## Evidence
+
+- Error handling style is try-catch
+- No custom error classes indicated
+
+---
+id: fastgpt-update-docs-on-version
+trigger: "When releasing a new version"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Update Docs On Version
+
+## Action
+
+Update docs/upgrading/ directory and doc-last-modified.json
+
+## Evidence
+
+- Documentation-update workflow shows this pattern
+- Frequency of 15x/month
+
+---
+id: fastgpt-sync-docker-compose
+trigger: "When updating deployment configurations"
+confidence: 0.92
+domain: workflow
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Sync Docker Compose
+
+## Action
+
+Sync changes across deploy/docker/ and document/public/deploy/docker/ directories
+
+## Evidence
+
+- Docker-compose-sync workflow pattern
+- Multiple docker-compose files need sync
+
+---
+id: fastgpt-security-fix-testing
+trigger: "When implementing security fixes"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Security Fix Testing
+
+## Action
+
+Add comprehensive test coverage and update security documentation
+
+## Evidence
+
+- Security-fix-implementation workflow
+- Pattern includes test and doc updates
+
+---
+id: fastgpt-i18n-all-languages
+trigger: "When updating UI text"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt I18n All Languages
+
+## Action
+
+Update zh-CN source first, then translate to en and zh-Hant variants
+
+## Evidence
+
+- Translation-and-i18n workflow
+- Multiple language files in packages/web/i18n/
+
+---
+id: fastgpt-api-auth-checks
+trigger: "When creating new API endpoints"
+confidence: 0.83
+domain: workflow
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Api Auth Checks
+
+## Action
+
+Add authentication and permission checks in the route handler
+
+## Evidence
+
+- API-endpoint-development workflow
+- Security pattern in projects/app/src/pages/api/
+
+---
+id: fastgpt-workflow-types-update
+trigger: "When enhancing workflow tools"
+confidence: 0.86
+domain: workflow
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Workflow Types Update
+
+## Action
+
+Update both dispatch tools and core workflow types/constants together
+
+## Evidence
+
+- Workflow-tool-enhancement pattern
+- Files in packages/service/core/workflow/ and packages/global/core/workflow/
+
+---
+id: fastgpt-dependabot-auto-merge
+trigger: "When Dependabot creates dependency update PR"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: gclm/FastGPT
+---
+
+# Fastgpt Dependabot Auto Merge
+
+## Action
+
+Review security changelog and auto-merge after checks pass
+
+## Evidence
+
+- Dependency-updates workflow
+- Automated PR creation pattern with security focus
+
