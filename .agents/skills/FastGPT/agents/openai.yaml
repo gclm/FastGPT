@@ -1,0 +1,6 @@
+interface:
+  display_name: "FastGPT"
+  short_description: "Repo-specific patterns and workflows for FastGPT"
+  default_prompt: "Use the FastGPT repo skill to follow existing architecture, testing, and workflow conventions."
+policy:
+  allow_implicit_invocation: true
